@@ -1,13 +1,74 @@
 .Modal {
-    position: fixed;
-    z-index: 200;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
+  position: fixed;
+  z-index: 200;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 2px #ccc;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  transition: all 0.3s ease-out;
+  background-color: blueviolet;
+}
+
+.ModalOpening {
+  animation: openModal 0.3s forwards;
+}
+
+.ModalOpened {
+  background-color: blueviolet;
+}
+
+.ModalClosing {
+  animation: closeModal 1s forwards;
+}
+
+.modal-slide-enter {
+}
+
+.modal-slide-enter-active {
+  animation: openModal 0.3s forwards;
+}
+
+.modal-slide-exit {
+}
+
+.modal-slide-exit-active {
+  animation: closeModal 1s forwards;
+}
+
+@keyframes openModal {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
     background-color: white;
-    padding: 10px;
-    text-align: center;
-    box-sizing: border-box;
-    top: 30%;
-    left: 25%;
-    width: 50%;
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(20%);
+    background-color: white;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    background-color: blueviolet;
+  }
+}
+
+@keyframes closeModal {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  /* 50% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  } */
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
